@@ -1,0 +1,64 @@
+#docker essentials 
+
+apt/yum install git
+add user
+give sudo permission docker
+
+ arif ALL=(ALL:ALL) NOPASSWD: ALL
+
+============================
+git  add .
+git commit -am "initial"
+
+git branch dev
+
+git branch status
+
+git remote -v
+
+git remote set-url origin https://
+
+git push -u orign dev
+
+cp -r ../jenkins-terraform/.* ./jenkins/
+
+
+-------------------------
+
+git config --global user.email "latheef.mvvmc@gmail.com"
+git config --global user.name "mvvmc"
+git commit -m "this is my first commit"
+
+
+vi /etc/ssh/sshd_config >> public is yes
+
+vi /etc/ssh/sshd_config.d/60-cloudimg-settings.conf /yes
+
+---------------------------------------------------
+
+hostnamectl set-hostname worker-node1
+
+---------------------------------------------------
+
+
+docker@ip-10-0-13-139:~$ docker swarm init
+Swarm initialized: current node (wcprlyyjgkefohk4jtft9hexr) is now a manager.
+
+
+docker swarm leave --force // for leaves
+
+docker swarm join --token SWMTKN-1-5mwtudeg98zjodebqgvvnztc53xhm4fkcoslmufpev1cn6lvga-9g41t4y5iiatubn78j93g4uo9 10.0.0.153:2377
+
+docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
+
+docker service create --name myapp1 --replicas 5 -p 8082:80 mvmc/my-web-css:v1
+5(no of server app)
+
+docker node promote <container name>
+docker node demote <container name>
+
+docker swarm leave --force
+
+docker service rm myapp1 // remove
+
+
